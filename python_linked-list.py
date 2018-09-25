@@ -35,20 +35,15 @@ class LinkedList():
     #set head_node to this new node that is now the head
     self.head_node = new_node
     
+
   def stringify_list(self):
-    outputString = ""
-    while True:
-      outputString += str(self.head_node.get_value())
-      outputString +=  "\n"
-      if self.head_node.get_next_node() == None:
-        break
-        return outputString
-      else:
-        nextNode = self.head_node.get_next_node()
-        outputString += str(nextNode.get_value())
-        outputString +=  "\n"
-      return outputString
-      break
+    resultString = ""
+    current_node = self.head_node
+    while current_node:
+      if current_node.value != None:
+        resultString += str(current_node.value) + "\n"
+      current_node = current_node.get_next_node()
+    return resultString
       
   def remove_node(self, value_to_remove):
     current_node = self.head_node
