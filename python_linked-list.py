@@ -57,6 +57,20 @@ class LinkedList():
           current_node = None
         else:
           current_node = next_node
+
+  def remove_node(self, value_to_remove):
+    current_node = self.head_node
+    #compare using get_value and NOT .value because here were comparing the node's value to the value_to_remove argument, and not a string where wed need to concancentate multiple values
+    if current_node.get_value() == value_to_remove:
+      self.head_node = current_node.get_next_node()
+    else:
+      while current_node:
+        current_next_node = current_node.get_next_node()
+        if current_next_node.get_value() == value_to_remove:
+          current_node.next_node = current_next_node.get_next_node()
+          current_node = None
+        else:
+          current_node = current_next_node
           
 # Instantiate a Node. #
 #my_node = Node(44)
